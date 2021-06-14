@@ -1,0 +1,38 @@
+<!-- Button trigger modal -->
+
+<button class="btn btn-success"  (click)="rerender()">rerender</button>
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered row-border hover" style="width:100%">
+    <tr>
+        <th>ProductId</th>
+        <th>ProductName</th>
+        <th>Category</th>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>ProductImage</th>
+        <th>qualityOnHand</th>
+        <th>ReOrderLevel</th>
+    </tr>
+  
+    <tr *ngFor="let product of Productdisplay">
+        <td>{{product.productID}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.category}}</td>
+        <td>{{product.brand}}</td>
+        <td>{{product.price}}</td>
+        <td><img [src]="product.productImage" *ngIf="product.productImage" style="float:right" width="80" /> </td>
+        <td>{{product.qualityOnHand}}</td>
+        <td>{{product.reOrderLevel}}</td>
+        <td>
+            <div>
+                <button type="button" class="btn btn-success" (click)="onSelect(product)">Details</button>
+                <button type="button" class="btn btn-danger" (click)="onDelete(product)">Delete</button>
+                
+            </div>
+        </td>
+
+        
+        
+    </tr>
+  
+  </table>

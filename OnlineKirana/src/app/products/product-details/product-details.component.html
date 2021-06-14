@@ -1,0 +1,30 @@
+<!-- Button trigger modal -->
+<ng-template #noproduct>
+    <h2>No Product to Display</h2>
+  </ng-template>
+<table>
+    <tr>
+        <th>ProductId</th>
+        <th>ProductName</th>
+        <th>Category</th>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>ProductImage</th>
+        <th>qualityOnHand</th>
+        <th>ReOrderLevel</th>
+    </tr>
+
+    <tr *ngIf="product;else noproduct">
+        <td>{{product.productID}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.category}}</td>
+        <td>{{product.brand}}</td>
+        <td>{{product.price}}</td>
+        <td><img [src]="product.productImage" *ngIf="product.productImage" style="float:right" width="80" /> </td>
+        <td>{{product.qualityOnHand}}</td>
+        <td>{{product.reOrderLevel}}</td>
+        
+        
+    </tr>
+
+</table>
