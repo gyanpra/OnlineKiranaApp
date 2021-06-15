@@ -7,13 +7,13 @@ namespace OnlineKirana.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class second : IMigrationMetadata
+    public sealed partial class tablesadded1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(second));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(tablesadded1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106141559153_second"; }
+            get { return "202106151709056_tablesadded1"; }
         }
         
         string IMigrationMetadata.Source
