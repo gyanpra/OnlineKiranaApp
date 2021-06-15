@@ -21,6 +21,8 @@
     "angular-datatables": "^12.0.0",
     "datatables.net": "^1.10.25",
     "datatables.net-dt": "^1.10.25",
+    "ngx-bootstrap": "^6.2.0",
+    "ngx-bootstrap-modal": "^2.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

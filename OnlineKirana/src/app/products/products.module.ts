@@ -5,6 +5,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { DataTablesModule } from 'angular-datatables';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -19,6 +20,8 @@ import { DataTablesModule } from 'angular-datatables';
     ProductsRoutingModule,
     ReactiveFormsModule,
     DataTablesModule,
+    ModalModule.forRoot(),
+
   ],
   
 })

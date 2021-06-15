@@ -1,8 +1,9 @@
 <!-- Button trigger modal -->
+<button class="btn btn-warning mb-3 float-right text-uppercase" (click)="onAddProduct()">Add Product</button>
+<button class="btn btn-success" (click)="rerender()">rerender</button>
 
-<button class="btn btn-success"  (click)="rerender()">rerender</button>
-
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered row-border hover" style="width:100%">
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered row-border hover"
+    style="width:100%">
     <tr>
         <th>ProductId</th>
         <th>ProductName</th>
@@ -10,29 +11,261 @@
         <th>Brand</th>
         <th>Price</th>
         <th>ProductImage</th>
-        <th>qualityOnHand</th>
+        <th>QuantityOnHand</th>
         <th>ReOrderLevel</th>
     </tr>
-  
+
     <tr *ngFor="let product of Productdisplay">
-        <td>{{product.productID}}</td>
-        <td>{{product.productName}}</td>
-        <td>{{product.category}}</td>
-        <td>{{product.brand}}</td>
-        <td>{{product.price}}</td>
-        <td><img [src]="product.productImage" *ngIf="product.productImage" style="float:right" width="80" /> </td>
-        <td>{{product.qualityOnHand}}</td>
-        <td>{{product.reOrderLevel}}</td>
+        <td>{{product.ProductID}}</td>
+        <td>{{product.ProductName}}</td>
+        <td>{{product.Category}}</td>
+        <td>{{product.Brand}}</td>
+        <td>{{product.Price}}</td>
+        <td><img [src]="product.ProductImage" *ngIf="product.ProductImage" style="float:right" width="80" /> </td>
+        <td>{{product.QuantityOnHand}}</td>
+        <td>{{product.ReOrderLevel}}</td>
         <td>
             <div>
                 <button type="button" class="btn btn-success" (click)="onSelect(product)">Details</button>
+                <button type="button" class="btn btn-primary" (click)="onUpdateModal(product)">Update</button>
                 <button type="button" class="btn btn-danger" (click)="onDelete(product)">Delete</button>
-                
             </div>
         </td>
 
-        
-        
+
+
     </tr>
+
+</table>
+
+<!-- ADD PRODUCT MODAL START-->
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title">ADD NEW PRODUCT</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body text-center">
+      <p class="list-group-item active text-center text-uppercase">{{modalMessage}}</p>
+      <form [formGroup]="InsertForm" (ngSubmit)="onSubmit()">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="ProductName"></span>
+              </div>
+              <input type="text" id="ProductName" formControlName="ProductName" class="form-control" placeholder="eg: Tata Salt" aria-label="ProductName" aria-describedby="ProductName">
+            </div>
+            <div class="errorMessage" *ngIf="ProductName.touched && ProductName.errors">
+              <span *ngIf="ProductName.hasError('required')">Product Name is required.</span>
+              <span *ngIf="ProductName.hasError('maxlength')">Only 50 characters allowed for Product Name.</span>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="Category"></span>
+              </div>
+              <input type="text" id="Category" formControlName="Category" class="form-control" placeholder="eg: Sugar" aria-label="Category" aria-describedby="Category">
+            </div>
+            <div class="errorMessage" *ngIf="Category.touched && Category.errors">
+              <span *ngIf="Category.hasError('required')">Category is required.</span>
+              <span *ngIf="Category.hasError('maxlength')">Only 50 characters allowed for Product Category.</span>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="ProductBrand"></span>
+              </div>
+              <input type="text" id="Brand" formControlName="Brand" class="form-control" placeholder="eg: SBrand" aria-label="Brand" aria-describedby="ProductBrand">
+            </div>
+            <div class="errorMessage" *ngIf="Brand.touched && Brand.errors">
+              <span *ngIf="Brand.hasError('required')">Brand Name is required.</span>
+              <span *ngIf="Brand.hasError('maxlength')">Only 50 characters allowed for Product Brand.</span>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"></span>
+              </div>
+              <input formControlName="Price" type="text" class="form-control" placeholder="eg: 500">
+            </div>
+            <div class="errorMessage" *ngIf="Price.touched && Price.errors">
+              <span *ngIf="Price.hasError('required')">Product Price is required.</span>
+              <span *ngIf="Price.hasError('min')">Negative price Not allowed</span>
+              <span *ngIf="Price.hasError('max')">Max price allowes is 10000</span>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="ProductImage"></span>
+              </div>
+              <input type="text" formControlName="ProductImage" class="form-control" placeholder="eg: OnlineKirana.jpg" aria-label="ProductImage" aria-describedby="ProductImage">
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"></span>
+              </div>
+              <input formControlName="QuantityOnHand" type="text" class="form-control" placeholder="eg: 500">
+            </div>
+            <div class="errorMessage" *ngIf="Price.touched && QuantityOnHand.errors">
+              <span *ngIf="QuantityOnHand.hasError('required')">Product QuantityOnHand is required.</span>
+              <span *ngIf="QuantityOnHand.hasError('min')">Negative QuantityOnHand Not allowed</span>
+              <span *ngIf="QuantityOnHand.hasError('max')">Max QuantityOnHand allowes is 10000</span>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"></span>
+              </div>
+              <input formControlName="ReOrderLevel" type="text" class="form-control" placeholder="eg: 500">
+            </div>
+            <div class="errorMessage" *ngIf="Price.touched && ReOrderLevel.errors">
+              <span *ngIf="ReOrderLevel.hasError('required')">Product ReOrderLevel is required.</span>
+              <span *ngIf="ReOrderLevel.hasError('min')">Negative ReOrderLevel Not allowed</span>
+              <span *ngIf="ReOrderLevel.hasError('max')">Max ReOrderLevel allowes is 10000</span>
+            </div>
+          </li>
+         
+         
+
+          <li class="list-group-item">
+            <button [disabled]="InsertForm.invalid"  class="btn btn-primary btn-block">ADD</button>
+          </li>
+        </ul>
   
-  </table>
+      </form>
+  
+    </div>
+  </ng-template>
+
+  <!-- ADD PRODUCT MODAL ENDS-->
+
+  <ng-template #editTemplate>
+    <div class="modal-header">
+      <h4 class="modal-title">EDIT PRODUCT DETAIL</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body text-center">
+      <p class="list-group-item active text-center text-uppercase">{{modalMessage}}</p>
+      <form [formGroup]="UpdateForm" (ngSubmit)="onUpdate()">
+        <ul class="list-group">
+          <li class="list-group-item" [hidden]="_ProductID">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="ProductID"><i class="fa fa-key"></i></span>
+              </div>
+              <input type="text" class="form-control" formControlName="ProductID" />
+            </div>
+            </li>
+            <li class="list-group-item">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="ProductName"></span>
+                </div>
+                <input type="text" id="ProductName" formControlName="ProductName" class="form-control" placeholder="eg: Tata Salt" aria-label="ProductName" aria-describedby="ProductName">
+              </div>
+              <div class="errorMessage" *ngIf="_ProductName.touched && _ProductName.errors">
+                <span *ngIf="_ProductName.hasError('required')">Product Name is required.</span>
+                <span *ngIf="_ProductName.hasError('maxlength')">Only 50 characters allowed for Product Name.</span>
+              </div>
+            </li>
+  
+            <li class="list-group-item">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="Category"></span>
+                </div>
+                <input type="text" id="Category" formControlName="Category" class="form-control" placeholder="eg: Sugar" aria-label="Category" aria-describedby="Category">
+              </div>
+              <div class="errorMessage" *ngIf="_Category.touched && _Category.errors">
+                <span *ngIf="_Category.hasError('required')">Category is required.</span>
+                <span *ngIf="_Category.hasError('maxlength')">Only 50 characters allowed for Product Category.</span>
+              </div>
+            </li>
+  
+            <li class="list-group-item">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="Brand"></span>
+                </div>
+                <input type="text" id="Brand" formControlName="Brand" class="form-control" placeholder="eg: SBrand" aria-label="Brand" aria-describedby="Brand">
+              </div>
+              <div class="errorMessage" *ngIf="Brand.touched && Brand.errors">
+                <span *ngIf="Brand.hasError('required')">Brand Name is required.</span>
+                <span *ngIf="Brand.hasError('maxlength')">Only 50 characters allowed for Product Brand.</span>
+              </div>
+            </li>
+  
+            <li class="list-group-item">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"></span>
+                </div>
+                <input formControlName="Price" type="text" class="form-control" placeholder="eg: 500">
+              </div>
+              <div class="errorMessage" *ngIf="_Price.touched && _Price.errors">
+                <span *ngIf="_Price.hasError('required')">Product Price is required.</span>
+                <span *ngIf="_Price.hasError('min')">Negative price Not allowed</span>
+                <span *ngIf="_Price.hasError('max')">Max price allowes is 10000</span>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="ProductImage"></span>
+                </div>
+                <input type="text" formControlName="ProductImage" class="form-control" placeholder="eg: OnlineKirana.jpg" aria-label="ProductImage" aria-describedby="ProductImage">
+              </div>
+            </li>
+  
+            <li class="list-group-item">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"></span>
+                </div>
+                <input formControlName="QuantityOnHand" type="text" class="form-control" placeholder="eg: 500">
+              </div>
+              <div class="errorMessage" *ngIf="_Price.touched && _QuantityOnHand.errors">
+                <span *ngIf="_QuantityOnHand.hasError('required')">Product QuantityOnHand is required.</span>
+                <span *ngIf="_QuantityOnHand.hasError('min')">Negative QuantityOnHand Not allowed</span>
+                <span *ngIf="_QuantityOnHand.hasError('max')">Max QuantityOnHand allowes is 10000</span>
+              </div>
+            </li>
+  
+            <li class="list-group-item">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"></span>
+                </div>
+                <input formControlName="ReOrderLevel" type="text" class="form-control" placeholder="eg: 500">
+              </div>
+              <div class="errorMessage" *ngIf="_Price.touched && _ReOrderLevel.errors">
+                <span *ngIf="_ReOrderLevel.hasError('required')">Product ReOrderLevel is required.</span>
+                <span *ngIf="_ReOrderLevel.hasError('min')">Negative ReOrderLevel Not allowed</span>
+                <span *ngIf="_ReOrderLevel.hasError('max')">Max ReOrderLevel allowes is 10000</span>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <button [disabled]="UpdateForm.invalid" class="btn btn-primary btn-block">UPDATE</button>
+            </li>
+          </ul>
+    
+        </form>
+    
+      </div>
+    </ng-template>

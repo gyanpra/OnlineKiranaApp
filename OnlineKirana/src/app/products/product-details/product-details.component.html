@@ -10,19 +10,19 @@
         <th>Brand</th>
         <th>Price</th>
         <th>ProductImage</th>
-        <th>qualityOnHand</th>
+        <th>QuantityOnHand</th>
         <th>ReOrderLevel</th>
     </tr>
 
     <tr *ngIf="product;else noproduct">
-        <td>{{product.productID}}</td>
-        <td>{{product.productName}}</td>
-        <td>{{product.category}}</td>
-        <td>{{product.brand}}</td>
-        <td>{{product.price}}</td>
-        <td><img [src]="product.productImage" *ngIf="product.productImage" style="float:right" width="80" /> </td>
-        <td>{{product.qualityOnHand}}</td>
-        <td>{{product.reOrderLevel}}</td>
+        <td>{{product.ProductID}}</td>
+        <td>{{product.ProductName}}</td>
+        <td>{{product.Category}}</td>
+        <td>{{product.Brand}}</td>
+        <td>{{product.Price}}</td>
+        <td><img [src]="product.ProductImage" *ngIf="product.ProductImage" style="float:right" width="80" /> </td>
+        <td>{{product.QuantityOnHand}}</td>
+        <td>{{product.ReOrderLevel}}</td>
         
         
     </tr>
