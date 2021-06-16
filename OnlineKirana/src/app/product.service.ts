@@ -12,16 +12,16 @@ import { mergeMap, first, shareReplay } from 'rxjs/operators';
 export class ProductService {
 
   readonly APIUrl="https://localhost:44337/api";
-  readonly DeleteUrl="https://localhost:44337/api/products/";
-  readonly AddUrl="https://localhost:44337/api/products/";
-  readonly EditUrl="https://localhost:44337/api/products/";
+  readonly DeleteUrl="https://localhost:44337/api/product/";
+  readonly AddUrl="https://localhost:44337/api/product/";
+  readonly EditUrl="https://localhost:44337/api/product/";
 
   private product$: Observable<Product[]>;
 
   constructor(private httpclient:HttpClient) { }
 
   getProductList():Observable<Product[]>{
-    return this.httpclient.get<any>(this.APIUrl+'/Products');
+    return this.httpclient.get<any>(this.APIUrl+'/Product');
   }
 
   getProductById(id: number) : Observable<Product> 
