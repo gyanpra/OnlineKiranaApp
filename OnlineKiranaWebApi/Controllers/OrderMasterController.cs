@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -14,44 +13,44 @@ using OnlineKirana.Models;
 
 namespace OnlineKirana.Controllers
 {
-    public class ProductsController : ApiController
+    public class OrderMasterController : ApiController
     {
         private OnlineKiranaDbContext db = new OnlineKiranaDbContext();
 
-        // GET: api/Products
-        public IQueryable<Product> GetAllProducts()
+        // GET: api/OrderMaster
+        public List<OrderMaster> GetOrderMaster()
         {
-            return db.Product;
+            return db.OrderMaster.ToList();
         }
 
-        // GET: api/Products/5
-        [ResponseType(typeof(Product))]
-        public async Task<IHttpActionResult> GetProductData(int id)
+        // GET: api/OrderMaster/5
+        [ResponseType(typeof(OrderMaster))]
+        public async Task<IHttpActionResult> GetOrderMaster(int id)
         {
-            Product product = await db.Product.FindAsync(id);
-            if (product == null)
+            OrderMaster orderMaster = await db.OrderMaster.FindAsync(id);
+            if (orderMaster == null)
             {
                 return NotFound();
             }
 
-            return Ok(product);
+            return Ok(orderMaster);
         }
 
-        // PUT: api/Products/5
+        // PUT: api/OrderMaster/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutProduct(int id, Product product)
+        public async Task<IHttpActionResult> PutOrderMaster(int id, OrderMaster orderMaster)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != product.ProductID)
+            if (id != orderMaster.OrderMasterID)
             {
                 return BadRequest();
             }
 
-            db.Entry(product).State = EntityState.Modified;
+            db.Entry(orderMaster).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +58,7 @@ namespace OnlineKirana.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductExists(id))
+                if (!OrderMasterExists(id))
                 {
                     return NotFound();
                 }
@@ -72,35 +71,35 @@ namespace OnlineKirana.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Products
-        [ResponseType(typeof(Product))]
-        public async Task<IHttpActionResult> AddProduct(Product product)
+        // POST: api/OrderMaster
+        [ResponseType(typeof(OrderMaster))]
+        public async Task<IHttpActionResult> PostOrderMaster(OrderMaster orderMaster)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Product.Add(product);
+            db.OrderMaster.Add(orderMaster);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = product.ProductID }, product);
+            return CreatedAtRoute("DefaultApi", new { id = orderMaster.OrderMasterID }, orderMaster);
         }
 
-        // DELETE: api/Products/5
-        [ResponseType(typeof(Product))]
-        public async Task<IHttpActionResult> DeleteProduct(int id)
+        // DELETE: api/OrderMaster/5
+        [ResponseType(typeof(OrderMaster))]
+        public async Task<IHttpActionResult> DeleteOrderMaster(int id)
         {
-            Product product = await db.Product.FindAsync(id);
-            if (product == null)
+            OrderMaster orderMaster = await db.OrderMaster.FindAsync(id);
+            if (orderMaster == null)
             {
                 return NotFound();
             }
 
-            db.Product.Remove(product);
+            db.OrderMaster.Remove(orderMaster);
             await db.SaveChangesAsync();
 
-            return Ok(product);
+            return Ok(orderMaster);
         }
 
         protected override void Dispose(bool disposing)
@@ -112,9 +111,9 @@ namespace OnlineKirana.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProductExists(int id)
+        private bool OrderMasterExists(int id)
         {
-            return db.Product.Count(e => e.ProductID == id) > 0;
+            return db.OrderMaster.Count(e => e.OrderMasterID == id) > 0;
         }
     }
 }
