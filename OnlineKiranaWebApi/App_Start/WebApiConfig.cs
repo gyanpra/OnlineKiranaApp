@@ -12,6 +12,7 @@ namespace OnlineKirana
         {
             // Web API configuration and services
 
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -20,10 +21,14 @@ namespace OnlineKirana
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            
+
 
             // Enable CORS for the Angular App
             var cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
             config.EnableCors(cors);
+
+
         }
     }
 }

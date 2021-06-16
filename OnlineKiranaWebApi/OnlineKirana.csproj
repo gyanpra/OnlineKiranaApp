@@ -167,13 +167,19 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\DeliveryAddressController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrderMasterController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="DataAccessLayer\CustomerDataAccessLayer.cs" />
     <Compile Include="DataAccessLayer\ProductDataAcessLayer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interface\ICustomerRepository.cs" />
     <Compile Include="Interface\IProductRepository.cs" />
     <Compile Include="Migrations\202106151640258_tablesgenerated.cs" />
     <Compile Include="Migrations\202106151640258_tablesgenerated.Designer.cs">
@@ -186,6 +192,14 @@
     <Compile Include="Migrations\202106151709056_tablesadded1.cs" />
     <Compile Include="Migrations\202106151709056_tablesadded1.Designer.cs">
       <DependentUpon>202106151709056_tablesadded1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106160935556_newmigrationn.cs" />
+    <Compile Include="Migrations\202106160935556_newmigrationn.Designer.cs">
+      <DependentUpon>202106160935556_newmigrationn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106160950505_removetypeid.cs" />
+    <Compile Include="Migrations\202106160950505_removetypeid.Designer.cs">
+      <DependentUpon>202106160950505_removetypeid.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -290,6 +304,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106151709056_tablesadded1.resx">
       <DependentUpon>202106151709056_tablesadded1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106160935556_newmigrationn.resx">
+      <DependentUpon>202106160935556_newmigrationn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106160950505_removetypeid.resx">
+      <DependentUpon>202106160950505_removetypeid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -92,6 +92,7 @@ D:\KiranaApplication\OnlineKirana\bin\System.Web.Cors.dll
 D:\KiranaApplication\OnlineKirana\bin\System.Web.Http.Cors.dll
 D:\KiranaApplication\OnlineKirana\bin\System.Web.Http.Cors.xml
 D:\KiranaApplication\OnlineKirana\obj\Debug\OnlineKirana.Migrations.second.resources
+D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\System.Web.Mvc.xml
 D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\OnlineKirana.dll.config
 D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\OnlineKirana.dll
 D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\OnlineKirana.pdb
@@ -171,7 +172,6 @@ D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\System.Net.Http.Formatting.xml
 D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\System.Web.Helpers.xml
 D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\System.Web.Http.xml
 D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\System.Web.Http.WebHost.xml
-D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\System.Web.Mvc.xml
 D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\System.Web.Optimization.xml
 D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\System.Web.Razor.xml
 D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\System.Web.WebPages.xml
@@ -179,11 +179,14 @@ D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\System.Web.WebPages.Deployment.xml
 D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\System.Web.WebPages.Razor.xml
 D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\Antlr3.Runtime.pdb
 D:\OnlineKiranaApp\OnlineKiranaWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.Migrations.tablesgenerated.resources
+D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.Migrations.tablesadded.resources
+D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.Migrations.tablesadded1.resources
+D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.Migrations.newmigrationn.resources
+D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.csproj.GenerateResource.cache
 D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.csproj.CoreCompileInputs.cache
 D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.csproj.CopyComplete
 D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.dll
 D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.pdb
-D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.Migrations.tablesgenerated.resources
-D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.csproj.GenerateResource.cache
-D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.Migrations.tablesadded.resources
-D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.Migrations.tablesadded1.resources
+D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.Migrations.removetypeid.resources
+D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.csproj.AssemblyReference.cache
