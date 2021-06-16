@@ -7,10 +7,12 @@ import {ProductService} from './product.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { ProductsModule } from './products/products.module';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    UploadImageComponent,
   ],
   imports: [
     BrowserModule,
