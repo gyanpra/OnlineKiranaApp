@@ -145,7 +145,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       'Price': this._Price.value,
       'ProductImage': this._ProductImage.value,
       'QuantityOnHand': this._QuantityOnHand.value,
-      'ReOrderLevel': this._ReOrderLevel.value
+      'ReOrderLevel': this._ReOrderLevel.value,
 
     });
 

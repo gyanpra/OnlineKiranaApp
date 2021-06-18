@@ -11,8 +11,8 @@ namespace OnlineKirana.Interface
     {
 
         List<Product> GetAllProducts();
-        int AddProduct(Product product);
-        int UpdateProduct(Product product);
+        Product AddProduct(Product product);
+        bool UpdateProduct(Product product);
         Product GetProductData(int productId);
         string DeleteProduct(int productId);
         List<Product> GetSimilarProducts(int productId);

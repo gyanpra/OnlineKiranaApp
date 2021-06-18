@@ -25,7 +25,7 @@ namespace OnlineKirana.Models
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderMaster> OrderMaster { get; set; }
         public virtual DbSet<DeliveryAddress> DeliveryAddresses { get; set; }
-
+        public virtual DbSet<Image> Image { get; set; }
 
     }
 }

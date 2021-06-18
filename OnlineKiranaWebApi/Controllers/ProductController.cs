@@ -11,110 +11,43 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using OnlineKirana.Models;
+using OnlineKirana.Interface;
+using OnlineKirana.DataAccessLayer;
 
 namespace OnlineKirana.Controllers
 {
     public class ProductController : ApiController
     {
-        private OnlineKiranaDbContext db = new OnlineKiranaDbContext();
+        IProductRepository mydata = ProductDataAccessLayer.getRepository();
 
-        // GET: api/Products
-        public List<Product> GetAllProducts()
+        [HttpGet]
+        public IEnumerable<Product> Get()
         {
-            return db.Product.ToList();
+            return mydata.GetAllProducts();
         }
 
-        // GET: api/Products/5
-        [ResponseType(typeof(Product))]
-        public async Task<IHttpActionResult> GetProductData(int id)
+        public Product Get(int id)
         {
-            Product product = await db.Product.FindAsync(id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(product);
+            return mydata.GetProductData(id);
         }
 
-        // PUT: api/Products/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutProduct(int id, Product product)
+        [HttpPost]
+        public Product Create(Product item)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != product.ProductID)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(product).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
+            return mydata.AddProduct(item);
         }
 
-        // POST: api/Products
-        [ResponseType(typeof(Product))]
-        public async Task<IHttpActionResult> AddProduct(Product product)
+        [HttpPut]
+        public bool Update(Product item)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Product.Add(product);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = product.ProductID }, product);
+            return mydata.UpdateProduct(item);
         }
 
-        // DELETE: api/Products/5
-        [ResponseType(typeof(Product))]
-        public async Task<IHttpActionResult> DeleteProduct(int id)
+        [HttpDelete]
+        public void Delete(int id)
         {
-            Product product = await db.Product.FindAsync(id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            db.Product.Remove(product);
-            await db.SaveChangesAsync();
-
-            return Ok(product);
+            mydata.DeleteProduct(id);
         }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool ProductExists(int id)
-        {
-            return db.Product.Count(e => e.ProductID == id) > 0;
-        }
+        
     }
 }

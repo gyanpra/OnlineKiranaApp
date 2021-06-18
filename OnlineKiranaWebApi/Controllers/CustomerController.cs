@@ -115,5 +115,7 @@ namespace OnlineKirana.Controllers
         {
             return db.Customer.Count(e => e.CustomerID == id) > 0;
         }
+
+
     }
 }

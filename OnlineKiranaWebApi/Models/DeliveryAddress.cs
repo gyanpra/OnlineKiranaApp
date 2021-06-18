@@ -10,15 +10,11 @@ namespace OnlineKirana.Models
     {
         [Key]
         public int AddressID { get; set; }
+        public int CustomerID { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string City { get; set; }
         public string State { get; set; }
         public int PinCode { get; set; }
-        public Nullable<int> CustomerID { get; set; }
-
-        public virtual Customer Customer { get; set; }
-
-        public virtual ICollection<Order> OrderMaster { get; set; }
     }
 }

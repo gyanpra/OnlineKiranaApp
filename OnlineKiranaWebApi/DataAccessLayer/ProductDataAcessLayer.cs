@@ -11,12 +11,12 @@ namespace OnlineKirana.DataAccessLayer
 {
     public class ProductDataAccessLayer: IProductRepository
     {
-        readonly OnlineKiranaDbContext _dbContext;
 
-        public ProductDataAccessLayer(OnlineKiranaDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
+
+        private OnlineKiranaDbContext _dbContext = new OnlineKiranaDbContext();
+        private static ProductDataAccessLayer repo = new ProductDataAccessLayer();
+        public static IProductRepository getRepository()
+        { return repo; }
 
 
         public List<Product> GetAllProducts()
@@ -31,14 +31,14 @@ namespace OnlineKirana.DataAccessLayer
             }
         }
 
-        public int AddProduct(Product product)
+        public Product AddProduct(Product product)
         {
             try
             {
                 _dbContext.Product.Add(product);
                 _dbContext.SaveChanges();
 
-                return 1;
+                return product;
             }
             catch
             {
@@ -46,7 +46,7 @@ namespace OnlineKirana.DataAccessLayer
             }
         }
 
-        public int UpdateProduct(Product product)
+        public bool UpdateProduct(Product product)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace OnlineKirana.DataAccessLayer
                 _dbContext.Entry(product).State = EntityState.Modified;
                 _dbContext.SaveChanges();
 
-                return 1;
+                return true;
             }
             catch
             {

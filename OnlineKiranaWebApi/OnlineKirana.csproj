@@ -171,6 +171,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DeliveryAddressController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\OrderMasterController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -181,30 +182,15 @@
     </Compile>
     <Compile Include="Interface\ICustomerRepository.cs" />
     <Compile Include="Interface\IProductRepository.cs" />
-    <Compile Include="Migrations\202106151640258_tablesgenerated.cs" />
-    <Compile Include="Migrations\202106151640258_tablesgenerated.Designer.cs">
-      <DependentUpon>202106151640258_tablesgenerated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106151654413_tablesadded.cs" />
-    <Compile Include="Migrations\202106151654413_tablesadded.Designer.cs">
-      <DependentUpon>202106151654413_tablesadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106151709056_tablesadded1.cs" />
-    <Compile Include="Migrations\202106151709056_tablesadded1.Designer.cs">
-      <DependentUpon>202106151709056_tablesadded1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106160935556_newmigrationn.cs" />
-    <Compile Include="Migrations\202106160935556_newmigrationn.Designer.cs">
-      <DependentUpon>202106160935556_newmigrationn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106160950505_removetypeid.cs" />
-    <Compile Include="Migrations\202106160950505_removetypeid.Designer.cs">
-      <DependentUpon>202106160950505_removetypeid.cs</DependentUpon>
+    <Compile Include="Migrations\202106181325545_tablesadded.cs" />
+    <Compile Include="Migrations\202106181325545_tablesadded.Designer.cs">
+      <DependentUpon>202106181325545_tablesadded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DeliveryAddress.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\OnlineKiranaDbContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderMaster.cs" />
@@ -296,20 +282,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106151640258_tablesgenerated.resx">
-      <DependentUpon>202106151640258_tablesgenerated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106151654413_tablesadded.resx">
-      <DependentUpon>202106151654413_tablesadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106151709056_tablesadded1.resx">
-      <DependentUpon>202106151709056_tablesadded1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106160935556_newmigrationn.resx">
-      <DependentUpon>202106160935556_newmigrationn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106160950505_removetypeid.resx">
-      <DependentUpon>202106160950505_removetypeid.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106181325545_tablesadded.resx">
+      <DependentUpon>202106181325545_tablesadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
