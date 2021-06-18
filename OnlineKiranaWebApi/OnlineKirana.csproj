@@ -186,6 +186,10 @@
     <Compile Include="Migrations\202106181325545_tablesadded.Designer.cs">
       <DependentUpon>202106181325545_tablesadded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106181625096_datatypechanged.cs" />
+    <Compile Include="Migrations\202106181625096_datatypechanged.Designer.cs">
+      <DependentUpon>202106181625096_datatypechanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -284,6 +288,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106181325545_tablesadded.resx">
       <DependentUpon>202106181325545_tablesadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181625096_datatypechanged.resx">
+      <DependentUpon>202106181625096_datatypechanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
