@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {Product} from '../app/Interface/product';
+import {Product} from '../Interface/product';
 import { mergeMap, first, shareReplay } from 'rxjs/operators';
 
 @Injectable({

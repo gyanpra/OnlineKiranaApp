@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { UploadImageService } from '../upload-image.service';
+import { UploadImageService } from '../../Services/upload-image.service';
 @Component({
   selector: 'app-upload-image',
   templateUrl: './upload-image.component.html',

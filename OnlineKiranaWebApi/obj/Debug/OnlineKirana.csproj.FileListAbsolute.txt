@@ -185,5 +185,5 @@ D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.dll
 D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.pdb
 D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.Migrations.tablesadded.resources
 D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.csproj.GenerateResource.cache
-D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.csproj.AssemblyReference.cache
 D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.Migrations.datatypechanged.resources
+D:\OnlineKiranaApp\OnlineKiranaWebApi\obj\Debug\OnlineKirana.csproj.AssemblyReference.cache

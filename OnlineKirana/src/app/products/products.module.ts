@@ -13,7 +13,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ProductDetailsComponent,
     ProductListComponent
   ],
-  exports:[ProductDetailsComponent,ProductListComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, TemplateRef, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { Product } from 'src/app/Interface/product';
-import { ProductService } from 'src/app/product.service';
+import { ProductService } from 'src/app/Services/product.service';
 import { Router } from '@angular/router';
 import { DataTableDirective } from 'angular-datatables';
 import { Observable, Subject } from 'rxjs';
@@ -14,7 +14,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class ProductListComponent implements OnInit, OnDestroy {
 
-  // For the FormControl - Adding products
   InsertForm: FormGroup;
   ProductName: FormControl;
   Category: FormControl;
@@ -24,14 +23,12 @@ export class ProductListComponent implements OnInit, OnDestroy {
   QuantityOnHand: FormControl;
   ReOrderLevel: FormControl;
 
-  // Updating the Product
   UpdateForm: FormGroup;
   _ProductID: FormControl;
   _ProductName: FormControl;
   _Category: FormControl;
   _Brand: FormControl;
   _Price: FormControl;
-  _ProductImage: FormControl;
   _QuantityOnHand: FormControl;
   _ReOrderLevel: FormControl;
 
@@ -133,7 +130,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this._Category.setValue(productEdit.Category);
     this._Brand.setValue(productEdit.Brand);
     this._Price.setValue(productEdit.Price);
-    this._ProductImage.setValue(productEdit.ProductImage);
     this._QuantityOnHand.setValue(productEdit.QuantityOnHand);
     this._ReOrderLevel.setValue(productEdit.ReOrderLevel);
 
@@ -143,7 +139,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
       'Category': this._Category.value,
       'Brand': this._Brand.value,
       'Price': this._Price.value,
-      'ProductImage': this._ProductImage.value,
       'QuantityOnHand': this._QuantityOnHand.value,
       'ReOrderLevel': this._ReOrderLevel.value,
 
@@ -229,7 +224,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
       'Category': this._Category,
       'Brand': this._Brand,
       'Price': this._Price,
-      'ProductImage': this._ProductImage,
       'QuantityOnHand': this._QuantityOnHand,
       'ReOrderLevel': this._ReOrderLevel,
 

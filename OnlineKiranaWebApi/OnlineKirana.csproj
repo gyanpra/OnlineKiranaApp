@@ -176,11 +176,14 @@
     <Compile Include="Controllers\OrderMasterController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="DataAccessLayer\CustomerDataAccessLayer.cs" />
+    <Compile Include="DataAccessLayer\OrderDataAcessLayer.cs" />
     <Compile Include="DataAccessLayer\ProductDataAcessLayer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interface\ICustomerRepository.cs" />
+    <Compile Include="Interface\IOrderMasterRepository.cs" />
+    <Compile Include="Interface\IOrderRepository.cs" />
     <Compile Include="Interface\IProductRepository.cs" />
     <Compile Include="Migrations\202106181325545_tablesadded.cs" />
     <Compile Include="Migrations\202106181325545_tablesadded.Designer.cs">

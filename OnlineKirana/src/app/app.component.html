@@ -1,28 +1,4 @@
+<app-nav></app-nav>
 <div class="container">
-
-   
-
-    <nav class="navbar navbar-expand-sm bg-light navbar-dark">
-        <h4 class="d-flex justify-content-center">Online Kirana - Admin Panel</h4>
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <button [routerLink]='["/products"]'
-            class="m-1 btn btn-light btn-outline-primary" Button>Product</button>
-        </li>
-
-        <li class="nav-item">
-            <button routerLink="orders"
-            class="m-1 btn btn-light btn-outline-primary" Button>Orders</button>
-        </li>
-        <li class="nav-item">
-            <button routerLink="users"
-            class="m-1 btn btn-light btn-outline-primary" Button>Users</button>
-        </li>
-    </ul>
-    </nav>
-    <app-upload-image></app-upload-image>
-
-<router-outlet></router-outlet>
-
-
-</div>
+    <router-outlet></router-outlet>
+  </div>

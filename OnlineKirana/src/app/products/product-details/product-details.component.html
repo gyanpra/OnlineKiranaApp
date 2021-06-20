@@ -1,5 +1,52 @@
 <!-- Button trigger modal -->
-<ng-template #noproduct>
+    <ng-template #noproduct>
+        <h2>No Product to Display</h2>
+      </ng-template>
+<div class="docs-example-viewer-wrapper">
+    <div class="docs-example-viewer-title mat-elevation-z2">
+        <div class="docs-example-viewer-title-spacer">
+            <h2>Product Details</h2>
+        </div>
+    </div>
+    <div class="docs-example-viewer-body" *ngIf="product;else noproduct">
+        <div class="left-div">
+            <div class="image-card">
+                <img class="preview-image" mat-card-image [src]="product.ProductImage" *ngIf="product.ProductImage" alt="No image available">
+            </div>
+        </div>
+        <div class="right-div">
+            <table class="table">
+                <tr>
+                    <td><strong>ProductName</strong></td>
+                    <td>{{product.ProductName}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Category</strong></td>
+                    <td>{{product.Category}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Brand</strong></td>
+                    <td>{{product.Brand}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Price</strong></td>
+                    <td>{{product.Price | currency : 'INR'}}</td>
+                </tr>
+            </table>
+            <div fxLayoutGap="10px grid">
+                <button mat-raised-button color="primary" (click)="addToCart()">
+                    <span>
+                      shopping_cart
+                    </span>
+                    Add to Cart
+                  </button>
+                <!--<app-addtocart class="mr-2" [bookId]="bookId"></app-addtocart>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<ng-template #noproduct>
     <h2>No Product to Display</h2>
   </ng-template>
 <table>
@@ -27,4 +74,4 @@
         
     </tr>
 
-</table>
+</table>-->
